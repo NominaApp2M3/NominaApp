@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  *
- * @author JEREMY PEREZ
+ * @author Karla
  */
 public class Salario_DaoImp implements DAO_Salario{
 

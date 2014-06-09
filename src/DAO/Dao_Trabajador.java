@@ -9,7 +9,7 @@ import java.io.IOException;
 
 /**
  *
- * @author JEREMY PEREZ
+ * @author Karla
  */
 public interface Dao_Trabajador extends Dao<Trabajador> {
     

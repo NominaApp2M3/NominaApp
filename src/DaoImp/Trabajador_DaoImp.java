@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  *
- * @author JEREMY PEREZ
+ * @author Karla
  */
 
 public class Trabajador_DaoImp implements Dao_Trabajador{
