@@ -6,7 +6,7 @@ package POJO;
 
 /**
  *
- * @author Jeremy Perez
+ * @author Karla
  */
 public class Usuario {
     

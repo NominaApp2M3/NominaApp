@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author JEREMY PEREZ
+ * @author Karla
  */
 public class Validar {
     
