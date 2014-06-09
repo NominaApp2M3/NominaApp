@@ -1,6 +1,7 @@
 package FORMULARIOS;
 
 
+import Calculo_Deduc.Deducciones_Calc;
 import ConeccionAleatoria.RandomConnection;
 import DaoImp.Trabajador_DaoImp;
 import POJO.Trabajador;
@@ -51,10 +52,8 @@ public class trabajadores extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        moneda = new javax.swing.JComboBox();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        tiempo = new javax.swing.JComboBox();
         jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -113,14 +112,6 @@ public class trabajadores extends javax.swing.JFrame {
             }
         });
 
-        moneda.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        moneda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija la moneda de pago", "Cordobas", "Dolares", " " }));
-        moneda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                monedaActionPerformed(evt);
-            }
-        });
-
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 102, 102));
@@ -130,14 +121,6 @@ public class trabajadores extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 102, 102));
         jButton3.setText("Modificar");
-
-        tiempo.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        tiempo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija el tiempo de pago", "Mensual", "Semanal", "Quincenal" }));
-        tiempo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tiempoActionPerformed(evt);
-            }
-        });
 
         jButton4.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 102, 102));
@@ -161,31 +144,19 @@ public class trabajadores extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(38, 38, 38)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(moneda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(moneda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
-                            .addComponent(jButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4)
-                            .addComponent(jButton1))))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -361,19 +332,14 @@ public class trabajadores extends javax.swing.JFrame {
  
     }//GEN-LAST:event_he1KeyTyped
 
-    private void monedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monedaActionPerformed
-   moneda.getSelectedItem().toString();
-    }//GEN-LAST:event_monedaActionPerformed
-
-    private void tiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiempoActionPerformed
-   tiempo.getSelectedItem().toString();
-    }//GEN-LAST:event_tiempoActionPerformed
-
     private void cedKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_cedKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        Deducciones_Calc k= new Deducciones_Calc();
+        
         try {
             try{
       new RandomConnection(("Trabajadores.dat")).Conectar();
@@ -390,6 +356,19 @@ public class trabajadores extends javax.swing.JFrame {
       t.setApellidos(this.a1.getText());
       t.setCedula(this.ced.getText());
       
+      
+      double sm=((Double.parseDouble(this.ht1.getText())+Double.parseDouble(this.he1.getText()))*41.66);
+      double sn=k.SalarioNeto(sm);
+      
+      t.setSal_mensual(sm);
+      
+      double inns=k.INSS();
+      t.setINNS(inns);
+      
+      double ir=k.IR();
+     t.setIR(ir);
+     
+     
       
         } catch (IOException ex) {
             Logger.getLogger(trabajadores.class.getName()).log(Level.SEVERE, null, ex);
@@ -467,8 +446,6 @@ public class trabajadores extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JComboBox moneda;
     private javax.swing.JTextField n1;
-    private javax.swing.JComboBox tiempo;
     // End of variables declaration//GEN-END:variables
 }

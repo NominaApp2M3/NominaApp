@@ -16,6 +16,7 @@ public class Trabajador {
    private String Cedula;
    private int Hrs_Extras;
    private int Hrs_trabajadas;
+   private double sal_mensual;
    private double INNS;
    private double IR;
    private double sal_Bruto;
@@ -24,7 +25,7 @@ public class Trabajador {
     public Trabajador() {
     }
 
-    public Trabajador(int id, String Nombres, String Apellidos,String Cedula,int Hrs_Extras, int Hrs_trabajadas,double INNS, double IR, double sal_Bruto) {
+    public Trabajador(int id, String Nombres, String Apellidos,String Cedula,int Hrs_Extras, int Hrs_trabajadas,double INNS, double IR, double sal_Bruto,double sal_mensual) {
         this.id = id;
         this.Nombres = Nombres;
         this.Apellidos = Apellidos;
@@ -34,9 +35,18 @@ public class Trabajador {
         this.INNS=INNS;
         this.IR=IR;
         this.sal_Bruto=sal_Bruto;
-
+        this.sal_mensual=sal_mensual;
     }
 
+    public double getSal_mensual() {
+        return sal_mensual;
+    }
+
+    public void setSal_mensual(double sal_mensual) {
+        this.sal_mensual = sal_mensual;
+    }
+
+    
     public int getHrs_Extras() {
         return Hrs_Extras;
     }

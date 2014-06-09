@@ -181,10 +181,10 @@ public class Crear_Usuario extends javax.swing.JFrame {
                 
             }
             }else{
-                JOptionPane.showMessageDialog(this,"Contraseñas no coinciden"
-                        + "vuelva a intentarlo","Error",JOptionPane.ERROR_MESSAGE);
-                  this.Npass.setText("");
-                this.Cpass.setText("");
+//                JOptionPane.showMessageDialog(this,"Contraseñas no coinciden"
+//                        + "vuelva a intentarlo","Error",JOptionPane.ERROR_MESSAGE);
+//                  this.Npass.setText("");
+//                this.Cpass.setText("");
             }
             
         }catch(IOException e){
