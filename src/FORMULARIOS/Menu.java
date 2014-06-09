@@ -43,11 +43,13 @@ public class Menu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Administrar = new javax.swing.JButton();
         Agregar = new javax.swing.JButton();
         Mostrar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new ImageIcon(getClass().getResource("/icon/engranajes.png")).getImage());
@@ -67,7 +69,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(154, 154, 154)
                 .addComponent(jLabel1)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,6 +126,17 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(11, 0, 11, 0);
         jPanel2.add(jLabel5, gridBagConstraints);
+
+        jLabel6.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Salir");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.insets = new java.awt.Insets(11, 0, 11, 0);
+        jPanel2.add(jLabel6, gridBagConstraints);
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
 
@@ -189,9 +202,22 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(6, 0, 6, 0);
         jPanel3.add(jButton1, gridBagConstraints);
 
+        jButton2.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 102, 102));
+        jButton2.setText("Aceptar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.insets = new java.awt.Insets(8, 0, 8, 0);
+        jPanel3.add(jButton2, gridBagConstraints);
+
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 416, 338);
+        setBounds(0, 0, 428, 367);
     }// </editor-fold>//GEN-END:initComponents
 
     private void AdministrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdministrarActionPerformed
@@ -219,6 +245,12 @@ public class Menu extends javax.swing.JFrame {
                 
                 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,11 +291,13 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton Agregar;
     private javax.swing.JButton Mostrar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

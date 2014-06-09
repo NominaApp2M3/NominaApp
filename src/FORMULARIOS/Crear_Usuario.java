@@ -100,6 +100,7 @@ public class Crear_Usuario extends javax.swing.JFrame {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(9, 4, 9, 4);
         jPanel2.add(Cpass, gridBagConstraints);
 
