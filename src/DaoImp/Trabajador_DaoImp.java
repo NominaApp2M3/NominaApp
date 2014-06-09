@@ -22,7 +22,7 @@ public class Trabajador_DaoImp implements Dao_Trabajador{
     private RandomAccessFile raf;
     private Trabajador tr;
     private List <Trabajador>trs;
-    private static final int size=112;
+    private static final int size=144;
 
     public Trabajador_DaoImp() {
         raf=RandomConnection.GetCurrentConnection();
@@ -42,6 +42,11 @@ public class Trabajador_DaoImp implements Dao_Trabajador{
                tr.setNombres(raf.readUTF());
                tr.setApellidos(raf.readUTF());
                tr.setCedula(raf.readUTF());
+               tr.setHrs_trabajadas(raf.readInt());
+               tr.setHrs_Extras(raf.readInt());
+               tr.setINNS(raf.readDouble());
+               tr.setIR(raf.readDouble());
+               tr.setSal_Bruto(raf.readDouble());
 
        
         return tr;//Retorna el objeto
@@ -64,6 +69,11 @@ public class Trabajador_DaoImp implements Dao_Trabajador{
                       j.setNombres(d.getNombres());
                       j.setApellidos(d.getApellidos());
                       j.setCedula(d.getCedula());
+                      j.setHrs_trabajadas(d.getHrs_trabajadas());
+                      j.setHrs_Extras(d.getHrs_Extras());
+                      j.setINNS(d.getINNS());
+                      j.setIR(d.getIR());
+                      j.setSal_Bruto(d.getSal_Bruto());
 //                      j.setHrs_trabajadas(d.getHrs_trabajadas());
 //                      j.setHrs_Extras(d.getHrs_Extras());
 //                      j.setSalario_Bruto(d.getSalario_Bruto());
@@ -94,6 +104,11 @@ public class Trabajador_DaoImp implements Dao_Trabajador{
         raf.writeUTF(fillString(object.getNombres(), 20));
         raf.writeUTF(fillString(object.getApellidos(), 20));
         raf.writeUTF(fillString(object.getCedula(),14));
+        raf.writeInt(object.getHrs_trabajadas());
+        raf.writeInt(object.getHrs_Extras());
+        raf.writeDouble(object.getINNS());
+        raf.writeDouble(object.getIR());
+        raf.writeDouble(object.getSal_Bruto());
 //        raf.writeDouble(object.getHrs_trabajadas());
 //        raf.writeDouble(object.getHrs_Extras());
 //        raf.writeDouble(object.getSalario_Bruto());
@@ -114,12 +129,18 @@ public class Trabajador_DaoImp implements Dao_Trabajador{
        raf.writeUTF(fillString(Object.getNombres(), 20));
        raf.writeUTF(fillString(Object.getApellidos(),20));
        raf.writeUTF(fillString(Object.getCedula(), 14));
+        raf.writeInt(Object.getHrs_trabajadas());
+        raf.writeInt(Object.getHrs_Extras());
+        raf.writeDouble(Object.getINNS());
+        raf.writeDouble(Object.getIR());
+        raf.writeDouble(Object.getSal_Bruto());
+       
 
     }
 
     @Override
     public void Borrar(int id) throws IOException {
-        Actualizar(new Trabajador(id, "", "",""));
+     Actualizar(new Trabajador(id, "", "", "", 0, 0, 0,0, 0));
     }
 
     @Override
