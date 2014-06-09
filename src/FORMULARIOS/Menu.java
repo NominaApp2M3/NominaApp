@@ -1,5 +1,11 @@
+package FORMULARIOS;
 
+
+import ConeccionAleatoria.RandomConnection;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /*
  * To change this template, choose Tools | Templates
@@ -17,6 +23,7 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -35,10 +42,12 @@ public class Menu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         Administrar = new javax.swing.JButton();
         Agregar = new javax.swing.JButton();
         Mostrar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new ImageIcon(getClass().getResource("/icon/engranajes.png")).getImage());
@@ -105,6 +114,17 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
         jPanel2.add(jLabel4, gridBagConstraints);
 
+        jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Mostrar Usuarios");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(11, 0, 11, 0);
+        jPanel2.add(jLabel5, gridBagConstraints);
+
         getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
 
         jPanel3.setBackground(new java.awt.Color(102, 153, 255));
@@ -114,7 +134,7 @@ public class Menu extends javax.swing.JFrame {
 
         Administrar.setBackground(new java.awt.Color(0, 0, 0));
         Administrar.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        Administrar.setForeground(new java.awt.Color(255, 255, 255));
+        Administrar.setForeground(new java.awt.Color(0, 102, 102));
         Administrar.setText("Aceptar");
         Administrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,8 +150,13 @@ public class Menu extends javax.swing.JFrame {
 
         Agregar.setBackground(new java.awt.Color(0, 0, 0));
         Agregar.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        Agregar.setForeground(new java.awt.Color(255, 255, 255));
+        Agregar.setForeground(new java.awt.Color(0, 102, 102));
         Agregar.setText("Aceptar");
+        Agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -141,7 +166,7 @@ public class Menu extends javax.swing.JFrame {
 
         Mostrar.setBackground(new java.awt.Color(0, 0, 0));
         Mostrar.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        Mostrar.setForeground(new java.awt.Color(255, 255, 255));
+        Mostrar.setForeground(new java.awt.Color(0, 102, 102));
         Mostrar.setText("Aceptar");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -149,6 +174,20 @@ public class Menu extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(8, 0, 8, 0);
         jPanel3.add(Mostrar, gridBagConstraints);
+
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 102, 102));
+        jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.insets = new java.awt.Insets(6, 0, 6, 0);
+        jPanel3.add(jButton1, gridBagConstraints);
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -160,6 +199,26 @@ public class Menu extends javax.swing.JFrame {
  tr.setVisible(true); //Una vez inicializada, se manda a llamar la ventana
  this.setVisible(false); //cierra la ventana antes utilizada
     }//GEN-LAST:event_AdministrarActionPerformed
+
+    private void AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarActionPerformed
+        Crear_Usuario cu= new Crear_Usuario();
+       
+       cu.setVisible(true);
+       
+       this.setVisible(false);
+    }//GEN-LAST:event_AgregarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                try{
+        new RandomConnection(("Usuarios.dat")).Conectar();
+    }catch(FileNotFoundException e){
+        JOptionPane.showMessageDialog(this,"Archivo no encontrado","Error",JOptionPane.ERROR_MESSAGE);
+    }catch(IOException e){
+        JOptionPane.showMessageDialog(this,"Error en coneccion","Error",JOptionPane.ERROR_MESSAGE);
+    }
+                
+                
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,10 +258,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton Administrar;
     private javax.swing.JButton Agregar;
     private javax.swing.JButton Mostrar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -1,4 +1,15 @@
+package FORMULARIOS;
 
+
+import ConeccionAleatoria.RandomConnection;
+import DaoImp.Trabajador_DaoImp;
+import POJO.Trabajador;
+import java.awt.Component;
+import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*; 
 import javax.swing.ImageIcon;
 
@@ -15,8 +26,15 @@ import javax.swing.ImageIcon;
  */
 public class trabajadores extends javax.swing.JFrame {
 
+   
+    
+    
+
+    private JCheckBoxMenuItem gr;
+    
     public trabajadores() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -44,12 +62,13 @@ public class trabajadores extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         n1 = new javax.swing.JTextField();
         a1 = new javax.swing.JTextField();
-        c1 = new javax.swing.JTextField();
-        c2 = new javax.swing.JTextField();
-        c3 = new javax.swing.JTextField();
         ht1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         he1 = new javax.swing.JTextField();
+        ced = new javax.swing.JFormattedTextField();
+        jLabel7 = new javax.swing.JLabel();
+        CM = new javax.swing.JCheckBox();
+        CF = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bienvenido a la lista de trabajadores");
@@ -70,7 +89,7 @@ public class trabajadores extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(130, 130, 130)
                 .addComponent(jLabel5)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,8 +107,13 @@ public class trabajadores extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 102, 102));
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         moneda.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
         moneda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija la moneda de pago", "Cordobas", "Dolares", " " }));
@@ -101,12 +125,12 @@ public class trabajadores extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setForeground(new java.awt.Color(0, 102, 102));
         jButton2.setText("Eliminar");
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(0, 102, 102));
         jButton3.setText("Modificar");
 
         tiempo.setFont(new java.awt.Font("Arial Narrow", 1, 14)); // NOI18N
@@ -132,7 +156,7 @@ public class trabajadores extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(moneda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,6 +222,11 @@ public class trabajadores extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel4.add(jLabel1, gridBagConstraints);
 
+        n1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                n1ActionPerformed(evt);
+            }
+        });
         n1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 n1KeyTyped(evt);
@@ -224,46 +253,11 @@ public class trabajadores extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel4.add(a1, gridBagConstraints);
 
-        c1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                c1KeyTyped(evt);
+        ht1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ht1ActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 39;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel4.add(c1, gridBagConstraints);
-
-        c2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                c2KeyTyped(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 65;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 4, 0, 4);
-        jPanel4.add(c2, gridBagConstraints);
-
-        c3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                c3KeyTyped(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 65;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        jPanel4.add(c3, gridBagConstraints);
-
         ht1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ht1KeyTyped(evt);
@@ -294,42 +288,72 @@ public class trabajadores extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 65;
         jPanel4.add(he1, gridBagConstraints);
 
+        try {
+            ced.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###-######-####U")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        ced.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cedKeyTyped(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel4.add(ced, gridBagConstraints);
+
+        jLabel7.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Sexo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel4.add(jLabel7, gridBagConstraints);
+
+        CM.setText("M");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.insets = new java.awt.Insets(3, 0, 3, 0);
+        jPanel4.add(CM, gridBagConstraints);
+
+        CF.setText("F");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 10;
+        jPanel4.add(CF, gridBagConstraints);
+
         getContentPane().add(jPanel4, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 489, 358);
+        setBounds(0, 0, 538, 432);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void c1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_c1KeyTyped
-           char car = evt.getKeyChar(); //esta es la validacion por cada caracter de la cedula
-    if(c1.getText().length()>=3) evt.consume(); //esto me limita los primeros numeros separados por el guion de la cedula
-    if((car<'0' || car>'9')) evt.consume(); //aqui se valida que se ingresen solo numeros
-
-    }//GEN-LAST:event_c1KeyTyped
-
-    private void c2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_c2KeyTyped
-          char car = evt.getKeyChar();
-    if(c2.getText().length()>=6) evt.consume(); //aqui se validan solo los seis numeros que forman la fecha de nacimiento
-    if((car<'0' || car>'9')) evt.consume(); //Que se ingresen solo numeros
-
-    }//GEN-LAST:event_c2KeyTyped
-
-    private void c3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_c3KeyTyped
-            char car = evt.getKeyChar();
-    if(c3.getText().length()>=5) evt.consume();
-   if((car<'a' || car>'z') && (car<'A' || car>'Z')&& (car<'0' || car>'9')) evt.consume(); //Esta es la validacion de la ultima celda donde son los cuatro numeros y una letra en la cedula
-
-    }//GEN-LAST:event_c3KeyTyped
 
     private void n1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_n1KeyTyped
      char car=evt.getKeyChar();
-        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car<' ' || car>' ')){ //La validacion del nombre donde sea solo String, espacios y ningun numero
-           evt.consume(); }
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car<' ' || car>' ')&& (car!=(char)KeyEvent.VK_BACK_SPACE)){ //La validacion del nombre donde sea solo String, espacios y ningun numero
+           evt.consume(); 
+         JOptionPane.showMessageDialog(this, "No se admiten este tipo de caracteres","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        if(n1.getText().length()>20){
+            evt.consume();
+        }
     }//GEN-LAST:event_n1KeyTyped
 
     private void a1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_a1KeyTyped
    char car=evt.getKeyChar();
-        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car<' ' || car>' ')){ //Validacion del apellido, solo letras y espacio menos numeros
-           evt.consume(); }
+        if((car<'a' || car>'z') && (car<'A' || car>'Z') && (car<' ' || car>' ')&& (car!=(char)KeyEvent.VK_BACK_SPACE)){ //Validacion del apellido, solo letras y espacio menos numeros
+           evt.consume(); 
+         JOptionPane.showMessageDialog(this, "No se admiten este tipo de caracteres","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        if (a1.getText().length()>20) {
+            evt.consume();
+        }
     }//GEN-LAST:event_a1KeyTyped
 
     private void ht1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ht1KeyTyped
@@ -353,6 +377,45 @@ public class trabajadores extends javax.swing.JFrame {
     private void tiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiempoActionPerformed
    tiempo.getSelectedItem().toString();
     }//GEN-LAST:event_tiempoActionPerformed
+
+    private void cedKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cedKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cedKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            try{
+      new RandomConnection(("Trabajadores.dat")).Conectar();
+  }catch(FileNotFoundException e){
+      JOptionPane.showMessageDialog(this,"Archivo no encontrado","Error",JOptionPane.ERROR_MESSAGE);
+  }catch(IOException e){
+      JOptionPane.showMessageDialog(this,"Error en coneccion","Error",JOptionPane.ERROR_MESSAGE);
+  }
+      Trabajador_DaoImp timp= new Trabajador_DaoImp();
+      Trabajador t= new Trabajador();
+      
+      t.setId(timp.Raf()+1);
+      t.setNombres(this.n1.getText());
+      t.setApellidos(this.a1.getText());
+      t.setCedula(this.ced.getText());
+      
+      
+        } catch (IOException ex) {
+            Logger.getLogger(trabajadores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+              
+              
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ht1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ht1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_ht1ActionPerformed
+
+    private void n1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n1ActionPerformed
+        // TODO add your handling code here
+        
+    }//GEN-LAST:event_n1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -389,10 +452,10 @@ public class trabajadores extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox CF;
+    private javax.swing.JCheckBox CM;
     private javax.swing.JTextField a1;
-    private javax.swing.JTextField c1;
-    private javax.swing.JTextField c2;
-    private javax.swing.JTextField c3;
+    private javax.swing.JFormattedTextField ced;
     private javax.swing.JTextField he1;
     private javax.swing.JTextField ht1;
     private javax.swing.JButton jButton1;
@@ -404,6 +467,7 @@ public class trabajadores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
