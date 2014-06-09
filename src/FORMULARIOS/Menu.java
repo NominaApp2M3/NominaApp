@@ -250,6 +250,7 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         this.setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
