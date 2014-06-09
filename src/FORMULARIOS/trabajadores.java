@@ -368,8 +368,9 @@ public class trabajadores extends javax.swing.JFrame {
       double ir=k.IR();
      t.setIR(ir);
      
+     timp.Guardar(t);
      
-      
+      JOptionPane.showMessageDialog(this,"Trabajador agregado","",JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException ex) {
             Logger.getLogger(trabajadores.class.getName()).log(Level.SEVERE, null, ex);
         }
